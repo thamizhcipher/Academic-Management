@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .admin-box {
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+.admin-box h3 {
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.admin-buttons button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.admin-buttons button:hover {
+  background-color: #3e8e41;
+}
+
+.admin-buttons button i {
+  margin-right: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="admin-box">
+        
+        <div class="admin-buttons">
+            <!-- <center> -->
+                <h1>Admin Panel</h1>
+            <a href="/register">
+                <button id="btn-register"><i class="fa fa-plus"></i> Register New Student</button>
+            </a>
+            <!-- <form action="/auth/getAllQueries" method="post"> -->
+                <button id="btn-view" onclick="getvalue()"><i class="fa fa-eye"></i> View Queries</button>
+            <!-- </form> -->
+            <form method="post" action="/auth/deleteQuery">
+                <input type="text" placeholder="Enter id" name="idDel">
+                <button id="btn-delete"><i class="fa fa-trash"></i> Delete Student</button>
+            </a>
+        <!-- </center> -->
+        </div>
+      </div>
+      <% var result; %>
+                <center>
+                <table>
+                    <thead>
+                        <th id="th1"></th>
+                        <th id="th2"></th>
+                        <th id="th3"></th>
+                    </thead>
+                    <tbody id="data" style="text-align: center;">
+                        
+                    </tbody>
+                </table>
+            </center>
+   
+    
+    <script>
+
+
+
+        function getvalue() 
+        {
+          document.getElementById('th1').innerHTML='Id';
+          document.getElementById('th2').innerHTML='';
+          document.getElementById('th3').innerHTML='Query';
+          $.ajax({
+                url: "/auth/getAllQueries",
+                method: "GET",
+                success: function(data,status) {
+                    for(var i=0;i<data.result.length;i++)
+                    {
+                        document.getElementById('data').innerHTML+='<tr> <td>'+data.result[i].ID+'</td>'+'<td>---> </td>'+'<td>'+data.result[i].Queries+'</td>'+'</tr>';
+                    }
+                    
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+                });
+          
+        }
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+</body>
+</html>

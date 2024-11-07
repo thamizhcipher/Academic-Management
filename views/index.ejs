@@ -1,0 +1,95 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <title>Login Page</title>
+</head>
+
+<body>
+  <div class="section"></div>
+  <main>
+    <center>
+      <div class="section"></div>
+
+      <h5 class="indigo-text">Please, login into my account</h5>
+      <div class="section"></div>
+
+      <div class="container">
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+ 
+          <form class="col s12" method="post" action="/auth/login">
+            <div class='row'>
+              <div class='col s12'>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <i class="fas fa-envelope prefix"></i>
+                <input class='validate' type='email' name='email' id='email' />
+                <label for='email'>Enter your email</label>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <i class="fas fa-lock prefix"></i>
+                <input class='validate' type='password' name='password' id='passwordInput' />
+                <label for='password'>Enter your password</label>
+              </div>
+              
+            </div>
+
+            <br />
+            <center>
+              <div class='row'>
+                <button id="loginBtn" type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
+              </div>
+            </center>
+          </form>
+          <h4 id="message"></h4>
+        </div>
+      </div>
+      <a href="/adminIndex">Admin Login</a>
+    </center>
+
+    
+    
+    <div class="section"></div>
+    <div class="section"></div>
+  </main>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js">
+  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <!-- <script>
+    $(document).ready(function() {
+    $('#loginBtn').click(function(event) {
+      event.preventDefault();
+      var password = $('#passwordInput').val(); // get the user's password from the form input field
+      var email=$("#email").val();
+      $.ajax({
+        url: 'auth/login',
+        method: 'POST',
+        data: { email:email,password: password },
+        function(data,status) {
+          console.log(data);
+        //   if (response === 'success') {
+        //     window.location.href = '/user'; // redirect to the dashboard if the authentication is successful
+        //   } else {
+        //     $('#message').text(response); // update the message tag with the error message if authentication fails
+        //   }
+        // },
+        // error: function() {
+        //   $('#message').text('An error occurred'); // update the message tag with a generic error message if there's an error
+        // }
+      }});
+    });
+  });
+  </script> -->
+
+</body>
+
+</html>

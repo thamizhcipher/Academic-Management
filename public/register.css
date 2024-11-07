@@ -1,0 +1,35 @@
+/* Custom Styles */
+body {
+    background-color: #f7f7f7;
+  }
+  
+  .card {
+    margin-top: 50px;
+  }
+  
+  .card-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  input[type=text]:focus:not([readonly]) + label,
+  input[type=email]:focus:not([readonly]) + label,
+  input[type=password]:focus:not([readonly]) + label {
+    color: #26a69a;
+  }
+  
+  input[type=text]:focus:not([readonly]),
+  input[type=email]:focus:not([readonly]),
+  input[type=password]:focus:not([readonly]) {
+    border-bottom: 1px solid #26a69a;
+    box-shadow: 0 1px 0 0 #26a69a;
+  }
+  
+  .btn {
+    background-color: #26a69a;
+  }
+  
+  .btn:hover {
+    background-color: #2bbbad;
+  }
+  

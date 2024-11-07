@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	<!-- Materialize CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+	<style>
+		.black-box {
+			background-color: #000;
+			color: #fff;
+			height: 25rem;
+			width: 70rem;
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.dropdown-content li>a, .dropdown-content li>span {
+			color: #000 !important;
+		}
+
+		.dropdown-content li>a:hover, .dropdown-content li>span:hover {
+			background-color: #000 !important;
+			color: #fff !important;
+		}
+
+		input[type="text"] {
+			border: none;
+			border-bottom: 1px solid #000;
+			outline: none;
+			background-color: transparent;
+			color: #fff;
+			margin-bottom: 20px;
+			font-size: 18px;
+			padding-left: 5px;
+		}
+
+		input[type="text"]::placeholder {
+			color: #ddd;
+		}
+
+		.btn {
+			/* background-color: #000;
+			border: none;
+			padding: 10px 20px;
+			font-size: 18px;
+			color: #fff;
+			cursor: pointer; */
+			transition: background-color 0.3s ease;
+		}
+
+		.btn:hover {
+			background-color: violet;
+		}
+	</style>
+</head>
+<body>
+    <h2 style="text-align: center;">Welcome <%=Name%></h2>
+    <center>
+	<div class="container">
+		<div class="black-box">
+			<div class="input-field col s12">
+                <form action="/auth/query" method="post">
+					<input type="text" name="id" placeholder="Enter your id">
+				<select placeholder="rrf" name="dropdown">
+					<option value="" disabled selected>Select Query Type</option>
+					<option value="fee">Fee Structure</option>
+					<option value="bonafide">Bonafide Letter</option>
+				</select>
+				<label>Choose an option</label>
+			</div>
+            <center>
+                <input type="text" name="message" placeholder="Enter your query">
+            </center>
+			<button style="margin-top:1.25rem;" class="btn waves-effect waves-light" type="submit" name="action">Submit
+				<i class="fas fa-paper-plane"></i>
+			</button>
+        </form>
+			
+		</div>
+	</div>
+</center>
+	<!-- Materialize JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('select');
+			var instances = M.FormSelect.init(elems);
+		});
+	</script>
+
+</body>
+</html>
